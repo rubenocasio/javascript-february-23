@@ -25,12 +25,30 @@
  * @returns {Array<number>} The given nums after being sorted.
  */
 
-const bubbleSort = (nums) => {
-    //Code goes here
-}
-const numsRandomOrder = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
-const numsReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+// const bubbleSort = (nums) => {
+//     //Code goes here
+// }
 
-console.log(bubbleSort(numsRandomOrder));
+// console.log(bubbleSort(numsRandomOrder));
 
 /*****************************************************************************/
+const bubbleSort = (nums) => {
+    let isSorted = false;
+
+    while (isSorted === false) {
+        isSorted = true;
+        for (let i = 0; i < nums.length; i++) {
+            const j = i + 1;
+        if (nums[i] > nums[j]) {
+            isSorted = false;
+            const temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            }
+        }
+    }
+    return nums;
+}
+
+const numsRandomOrder = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+console.log(bubbleSort(numsRandomOrder));
