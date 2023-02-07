@@ -1,8 +1,8 @@
 class Fighter {
-    constructor(name, health, strength) {
+    constructor(name, health, speed, strength) {
         //name, health, speed, strength
         this.name = name;
-        this.health = 0;
+        this.health = health;
         this.speed = speed;
         this.strength = strength;
     }
@@ -20,15 +20,17 @@ class Fighter {
         console.log("I'm ducking!!")
         return this;
     }
-    
+    attack(target){
+        target.health -= this.strength
+        console.log(`${this.name} attacked ${target.name}, dealing ${this.strength} damage!`)
+        console.log(`${target.name} now has ${target.health} HP.`)
+    }
     showStats(){
         console.log(`The fighter ${this.name} stats are: \nHealth: ${this.health}\nSpeed: ${this.speed}\nStrength: ${this.strength}`)
         return this;
     };
 }
 
-const kimbo = new Fighter("Kimbo Slice", 100, 50, 25)
-const theRock = new Fighter("The Rock", 100, 50, 25)
 
 // kimbo.showStats()
 // console.log("--------------------------------------------")
