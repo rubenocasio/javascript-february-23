@@ -1,4 +1,4 @@
-const JudoMaster = require('../w1d2/judo.jsx')
+const JudoMaster = require('./judo.jsx')
 
 class Karate extends JudoMaster{
     constructor(name){
