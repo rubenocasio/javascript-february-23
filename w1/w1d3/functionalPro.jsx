@@ -61,5 +61,5 @@ const cheapItems2 = shoppingList.filter((item) => item.price < 100).map((item) =
 // const addTV = shoppingList.concat([{id: 900, itemName: "Sony TV", price: 5000, shop: ["Best Buy"]}])
 // console.log(addTV)
 
-const addTV = shoppingList.push([{itemName: "Sony TV", price: 5000, shop: ["Best Buy"]}])
-console.log(addTV)
+// const addTV = shoppingList.push([{itemName: "Sony TV", price: 5000, shop: ["Best Buy"]}])
+// console.log(addTV)
