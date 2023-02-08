@@ -12,12 +12,6 @@
         - Average: O(n^2) quadratic.
         - Worst: O(n^2) quadratic when the array is reverse sorted.
 
-        The first two elements of the array are compared in insertion sort.
-        9 is greater than 2 - they are not in the ascending order and 9 is not at its correct position.
-        Swap 9 and 2.
-        So, for now 2 is stored in a sorted sub-array.
-        Now, move to the next two elements and compare them
-
     Space: O(1) constant.
 
     - this sort splits the array into two portions (conceptually, not literally).
