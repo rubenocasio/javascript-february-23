@@ -49,9 +49,19 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @param {Array<number>} nums
  * @returns {Array<number>} The given array after being sorted.
  */
-const insertionSort = (nums) => {
-    // Code goes here
+function insertionSort(nums) {
+    for (let i = 1; i < nums.length; i++) {
+        let numToInsert = nums[i];
+        let leftIdx = i - 1;
+        while (leftIdx >= 0 && nums[leftIdx] > numToInsert) {
+        nums[leftIdx + 1] = nums[leftIdx];
+        leftIdx--;
+        }
+        nums[leftIdx + 1] = numToInsert;
+    }
+    return nums;
 }
+console.log(insertionSort(numsRandomOrder));
 
 
 /*****************************************************************************/
