@@ -9,11 +9,11 @@
 ## Commands
 ## Frontend Dependencies install(client)
 ```
-
+npm install react-bootstrap bootstrap
 ```
 ### App.js imports
 ```
-
+import "bootstrap/dist/css/bootstrap.min.css";
 ```
 
 ## Backend Dependencies install(server)
