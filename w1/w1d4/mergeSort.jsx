@@ -50,7 +50,20 @@ const expectedMerge4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  *    both given halves.
  */
 const merge = (left, right) => {
+    let result = [];
+    let indexLeft = 0;
+    let indexRight = 0;
 
+    while (indexLeft < left.length && indexRight < right.length) {
+        if (left[indexLeft] < right[indexRight]) {
+            result.push(left[indexLeft]);
+            indexLeft++;
+        } else {
+            result.push(right[indexRight]);
+            indexRight++;
+        }
+    }
+    return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));
 };
 
 console.log(merge(sortedA4, sortedB4));
@@ -65,7 +78,18 @@ console.log(merge(sortedA4, sortedB4));
  * @returns {Array<number>} A New sorted array.
  */
 function mergeSort(nums) {
+    if (nums.length === 1) {
+        return nums;
+    }
 
+    const middleIdx = Math.floor(nums.length / 2);
+    const left = nums.slice(0, middleIdx);
+    const right = nums.slice(middleIdx);
+
+    const sortedLeft = mergeSort(left);
+    const sortedRight = mergeSort(right);
+
+    return merge(sortedLeft, sortedRight);
 }
 
 const numsOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
