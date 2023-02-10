@@ -63,9 +63,31 @@ const expected4 = [1, 3, 4, 9, 12, 13, 17, 21, 27];
  * @returns {Array<number>} The given array after being sorted.
  */
 function quickSort(origArray) {
-    // Code goes here
+    if (origArray.length <= 1) {
+        return origArray;
+    } else {
+        let left = [];
+        let right = [];
+        var newArray = [];
+        let pivot = origArray.pop();
+        let length = origArray.length;
+
+        for (let i = 0; i < length; i++) {
+        if (origArray[i] <= pivot) {
+            left.push(origArray[i]);
+        } else {
+            right.push(origArray[i]);
+        }
+        }
+        //combine two or more arrays
+        //This method returns a new array without modifying any existing arrays.
+        return newArray.concat(quickSort(left), pivot, quickSort(right));
+    }
 }
+console.log(quickSort(nums1))
 console.log(quickSort(nums2))
+console.log(quickSort(nums3))
+console.log(quickSort(nums4))
 
 
 
