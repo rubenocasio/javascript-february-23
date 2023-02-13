@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+.myDiv {
+  outline: 2px red dashed;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
