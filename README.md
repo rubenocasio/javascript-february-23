@@ -10,6 +10,7 @@
 ## Frontend Dependencies install(client)
 ```
 npm install react-bootstrap bootstrap
+npm install axios
 ```
 ### App.js imports
 ```
