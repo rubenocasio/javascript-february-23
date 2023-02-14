@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
+//npm install axios or npm i axios
+
 const AxiosCrypto = () => {
     const [poke, setPoke] = useState([])
 
