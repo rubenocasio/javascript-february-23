@@ -53,7 +53,19 @@ const expected5 = [
  *    only.
  */
 function findConsqSums(nums, targetSum) {
-  //Code goes here
+  const summableSubsets = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    let sum = nums[i];
+
+    for (let j = i + 1; j <= nums.length; j++) {
+      if (sum === targetSum) {
+        summableSubsets.push(nums.slice(i, j));
+      }
+      sum += nums[j];
+    }
+  }
+  return summableSubsets;
 }
 console.log(findConsqSums(nums1, sum1))
 console.log(findConsqSums(nums2, sum2))
