@@ -1,10 +1,15 @@
 import React from 'react'
+import { useParams } from "react-router";
 
 const About = () => {
+
+    const { name, comment } = useParams();
+
     return (
         <div>
             <h1>About Us</h1>
-            <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis quidem porro facilis sunt quam dolor at officia. Consequuntur, magnam consectetur? Quam vel est quod fugiat quas atque earum ducimus illo.</h4>
+            <h1>{name}</h1>
+            <h2>{comment}</h2>
         </div>
     )
 }
