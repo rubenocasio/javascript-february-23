@@ -21,6 +21,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 ## Backend Dependencies install(server)
 ```
 npm install express
+npm install mongoose
 ```
 
 ## Computer Rogue Port Kill Instructions
