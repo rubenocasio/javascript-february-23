@@ -22,6 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 ```
 npm install express
 npm install mongoose
+npm install cors
 ```
 
 ## Computer Rogue Port Kill Instructions
