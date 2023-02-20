@@ -24,17 +24,41 @@ const expected2 =
 /*****************************************************************************/
 /**
  * Generates a SQL insert statement from the inputs
- * - Time: O(?).
- * - Space: O(?).
+ * - Time: O(n) linear, n = num of keys in columnValuePairs.
+ * - Space: O(n) linear.
  * @param {string} tableName
  * @param {Object} columnValuePairs
  * @returns {string} A string formatted as a SQL insert statement where the
  *    columns and values are extracted from columnValuePairs.
-*/
+ */
 function insert(tableName, columnValuePairs) {
-  //Code goes here
-}
+  let columns = "";
+  let values = "";
 
+  for (const colName in columnValuePairs) {
+    if (columnValuePairs.hasOwnProperty(colName)) {
+      let val = columnValuePairs[colName];
+
+      if (typeof val === "string") {
+        val = `'${val}'`;
+      }
+
+      // prepend a comma and space if it's not the first column added to string
+      if (columns === "") {
+        columns += colName;
+      } else {
+        columns += `, ${colName}`;
+      }
+
+      if (values === "") {
+        values += val;
+      } else {
+        values += `, ${val}`;
+      }
+    }
+  }
+  return `INSERT INTO ${tableName} (${columns}) VALUES (${values});`;
+}
 console.log(insert(table, insertData1));
 console.log(insert(table, insertData2));
 
@@ -44,9 +68,17 @@ console.log(insert(table, insertData2));
  * - Space: O(n) linear.
  */
 function insertFunctional(tableName, columnValuePairs) {
-  //Code goes here
+  const columns = Object.keys(columnValuePairs).join(", ");
+
+  const values = Object.values(columnValuePairs)
+    .map((val) => (typeof val === "string" ? `'${val}'` : val))
+    .join(", ");
+
+  return `INSERT INTO ${tableName} (${columns}) VALUES (${values});`;
 }
+
 console.log(insertFunctional(table, insertData1));
 console.log(insertFunctional(table, insertData2));
+
 
 module.exports = {insert,insertFunctional,};

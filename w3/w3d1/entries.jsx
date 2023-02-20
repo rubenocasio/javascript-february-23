@@ -41,7 +41,14 @@ const expected2 = [
  * @returns {output}
  */
 function entries(obj) {
-
+  const keyValPairs = [];
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const val = obj[key];
+      keyValPairs.push([key, val]);
+    }
+  }
+  return keyValPairs;
 }
 console.log(entries(obj1));
 console.log(entries(obj2));
