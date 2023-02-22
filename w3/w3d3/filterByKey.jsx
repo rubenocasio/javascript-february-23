@@ -5,8 +5,8 @@
 
   You can assume the key will exist on the object and the value of that key
   will be a string.
-
-  Bonus: make the search case insensitive.
+  
+  Bonus: make the search case insensitive. Treating or interpreting upper- and lowercase letters as being the same
 
   Bonus: re-write it with functional programming, using built in methods.
 
@@ -105,6 +105,78 @@ function functionalFilterByKey(items, searchFor, searchBy) {}
 
 /*****************************************************************************/
 
+/**
+ * Filters the given items based on the search criteria.
+ * - Time: O(n * (searchBy.length + searchFor.length)) n = items.length.
+ *    The searchBy.length + searchFor.length is due to the two .toLowerCase
+ *    methods which loop through the strings to lowerCase them.
+ * - Space: O(1) constant.
+ * @param {Array<Object>} items The items to be filtered.
+ * @param {string} searchBy The key to search by.
+ * @param {string} searchFor The value of the given key to search for.
+ * @returns {Array<Objects>} The matched items.
+ */
+function functionalFilterByKey(
+  items,
+  searchFor,
+  searchBy,
+  stringSearchMethod = "startsWith"
+) {
+  return items.filter((item) =>
+    item[searchBy].toLowerCase()[stringSearchMethod](searchFor.toLowerCase())
+  );
+}
+console.log(functionalFilterByKey(people, searchFor1, searchBy1));
+console.log(functionalFilterByKey(people, searchFor2, searchBy2));
+console.log(functionalFilterByKey(people, searchFor3, searchBy3));
+console.log(
+  functionalFilterByKey(
+    people,
+    searchFor4,
+    searchBy4,
+    (searchMethod4 = "includes")
+  )
+);
 
+function filterByKeyStartsWith(
+  items,
+  searchFor,
+  searchBy,
+  stringSearchMethod = "startsWith"
+) {
+  const filteredItems = [];
 
-module.exports = { functionalFilterByKey };
+  for (const item of items) {
+    if (
+      item[searchBy].toLowerCase()[stringSearchMethod](searchFor.toLowerCase())
+    ) {
+      filteredItems.push(item);
+    }
+  }
+  return filteredItems;
+}
+console.log(filterByKeyStartsWith(people, searchFor1, searchBy1));
+
+// early exit via not committing to lowerCasing full string
+// this would require a lot more hard-coding to handle the bonus search method
+function filterByKeyStartsWith2(items, searchFor, searchBy) {
+  const filteredItems = [];
+
+  for (const item of items) {
+    let match = true;
+    let searchVal = item[searchBy];
+
+    for (let i = 0; i < searchFor.length; i++) {
+      if (searchVal[i].toLowerCase() !== searchFor[i].toLowerCase()) {
+        match = false;
+        break;
+      }
+    }
+    if (match) {
+      filteredItems.push(item);
+    }
+  }
+  return filteredItems;
+}
+
+module.exports = { functionalFilterByKey, filterByKeyStartsWith };
