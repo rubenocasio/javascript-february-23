@@ -1,0 +1,64 @@
+form {
+  display: ;
+}
+
+.login {
+  width: 100vw;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.registration {
+  margin: auto;
+  margin-top: 2%;
+}
+
+.rounded-t-5 {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card cascading-right {
+  background: hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(30px);
+}
+
+.cascading-right {
+  margin-right: -50px;
+}
+
+@media(min-width:992px) {
+  .rounded-tr-lg-0 {
+    border-top-right-radius: 0;
+  }
+  .rounded-bl-lg-5 {
+    border-bottom-left-radius: 0.5rem;
+  }
+}
+
+@media(max-width: 991.98px) {
+  .cascading-right {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
