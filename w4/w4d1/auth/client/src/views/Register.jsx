@@ -33,7 +33,7 @@ const Register = () => {
 
 
     return (
-        <div className='regform'>
+        <div className='registration'>
             <form onSubmit={submitHandler}>
                 <div className="form-group row">
                     <label className="col-sm-2 col-form-label">Firstname</label>
