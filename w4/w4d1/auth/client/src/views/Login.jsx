@@ -33,9 +33,9 @@ const Login = () => {
             <section className="text-center text-lg-start">
             <div className="card mb-3">
                 <div className="row g-0 d-flex align-items-center">
-                    <div className="col-lg-4 d-none d-lg-flex">
+                    {/* <div className="col-lg-4 d-none d-lg-flex">
                         <video src={video} autoPlay muted loop className="w-75 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" alt="" type="video/mp4"></video>
-                    </div>
+                    </div> */}
                     <div classname="form">
                         <div className="card-body py-5 px-md-5">
                             <form onSubmit={submitHandler}>
