@@ -121,12 +121,12 @@ function canBecomePalindrome(str) {
   }
   return true;
 }
-console.log(canBecomePalindrome(str1));
-console.log(canBecomePalindrome(str2));
-console.log(canBecomePalindrome(str3));
-console.log(canBecomePalindrome(str4));
-console.log(canBecomePalindrome(str5));
-console.log(canBecomePalindrome(str6));
+// console.log(canBecomePalindrome(str1));
+// console.log(canBecomePalindrome(str2));
+// console.log(canBecomePalindrome(str3));
+// console.log(canBecomePalindrome(str4));
+// console.log(canBecomePalindrome(str5));
+// console.log(canBecomePalindrome(str6));
 
 
 module.exports = { canStringBecomePalindrome, canBecomePalindrome };
