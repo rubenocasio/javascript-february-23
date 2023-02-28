@@ -20,6 +20,26 @@
     Bonus: after solving it, make a 2nd solution to practice functional programming with built in methods
 */
 
+const friend1 = {
+  firstName: "Friend",
+  lastName: "One",
+  isSocialDistancing: false,
+  hasCovid: true,
+};
+
+const friend2 = {
+  firstName: "Friend",
+  lastName: "Two",
+  isSocialDistancing: false,
+  hasCovid: true,
+};
+
+const friend3 = {
+  firstName: "Friend",
+  lastName: "Three",
+  isSocialDistancing: false,
+  hasCovid: false,
+};
 
 const people = [
   {
@@ -42,26 +62,6 @@ const people = [
   },
 ];
 
-const friend1 = {
-  firstName: "Friend",
-  lastName: "One",
-  isSocialDistancing: false,
-  hasCovid: true,
-};
-
-const friend2 = {
-  firstName: "Friend",
-  lastName: "Two",
-  isSocialDistancing: false,
-  hasCovid: true,
-};
-
-const friend3 = {
-  firstName: "Friend",
-  lastName: "Three",
-  isSocialDistancing: false,
-  hasCovid: false,
-};
 
 
 const expected = ["Person One", "Person Three"];
@@ -113,15 +113,28 @@ const expected = ["Person One", "Person Three"];
  */
 function coronaVirusAtRisk(persons) {
   //Code goes here
+  const atRiskPersons = []
+
+  for(const person of persons) {
+    if(person.isSocialDistancing === false){
+      for(const friend of person.friends) {
+        if(friend.isSocialDistancing === false && friend.hasCovid) {
+          atRiskPersons.push(`${person.firstName} ${person.lastName}`)
+          break;
+        }
+      }
+    }
+  }
+  return atRiskPersons
 }
+console.log(coronaVirusAtRisk(people))
 
 /**
  * - Time: O(2n * m) -> O(n * m)  from nested loop of .findIndex.
  *    .map is another loop but not nested.
  * - Space: O(n) linear.
  */
-const functionalCoronaVirusAtRisk = (persons) => {
-  //Code goes here
-}
+const functionalCoronaVirusAtRisk = (persons) => persons.filter((person) => person.isSocialDistancing === false && person.friends.findIndex((friend) => friend.map((person) => `${person.firstName} ${person.lastName}`)))
+// console.log(functionalCoronaVirusAtRisk(people))
 
 module.exports = {coronaVirusAtRisk, functionalCoronaVirusAtRisk,};
